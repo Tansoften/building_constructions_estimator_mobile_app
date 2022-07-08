@@ -36,7 +36,13 @@ class _WrapperState extends State<Wrapper> {
 
   Future<bool> _checkAccess() async {
     Files fileOperation = Files();
-    String token = await fileOperation.readFile("token.dat");
+    String token = "";
+    try{
+      token = await fileOperation.readFile("token.dat");
+    }catch($exc){
+      await fileOperation.writeFile("token.dat", "");
+    }
+
     Uri uri = Uri.parse(userUri);
     headers["Authorization"] = "Bearer $token";
 

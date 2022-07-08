@@ -40,12 +40,6 @@ class _RoomsState extends State<Rooms> {
 
   }
 
-  // @override
-  // void initState(){
-  //   super.initState();
-  //    _getRooms();
-  // }
-
   @override
   Widget build(BuildContext context) {
     var roomsHeight = MediaQuery.of(context).size.height*0.7;
@@ -74,7 +68,6 @@ class _RoomsState extends State<Rooms> {
                     ),
 
                     itemCount: snapshot.requireData.length,
-                    reverse: true,
 
                     itemBuilder: (context, index){
                       var room = snapshot.data![index];
