@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 
 //Themes
+const bottomSheetTheme = BottomSheetThemeData(
+  backgroundColor: primaryColor,
+  constraints: BoxConstraints(
+    minHeight: 100.0,
+    minWidth: double.infinity,
+  ),
+);
+
 const listTileTheme = ListTileThemeData(
   textColor: secondaryColor,
 );

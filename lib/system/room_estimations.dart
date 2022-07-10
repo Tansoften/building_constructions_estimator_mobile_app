@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/connection.dart';
 import '../constants/uris.dart';
+import 'material_costs.dart';
 
 class RoomEstimations extends StatefulWidget {
   const RoomEstimations({Key? key, required this.toggleEstimations, required this.length, required this.width, required this.height, required this.roomId}) : super(key: key);
@@ -65,14 +66,14 @@ class _RoomEstimationsState extends State<RoomEstimations> {
           Column(
             children: [
               Text(
-                "Room Estimations for building ${widget.roomId}",
+                "Building Estimations for room no ${widget.roomId}",
                 style: const TextStyle(
                   fontSize: subHeading,
                 ),
               ),
 
               Text(
-                "Dimensions: \n${widget.length} m length \n${widget.width} m width \n${widget.height} m height"
+                "Dimensions: \n${widget.length} m Urefu, ${widget.width} m Upana, ${widget.height} m Kimo"
               )
             ],
           ),
@@ -86,13 +87,13 @@ class _RoomEstimationsState extends State<RoomEstimations> {
                 ),
               ),
               Text(
-                "Blocks: ${estimations["blocks"]}",
+                "Matofali: ${estimations["blocks"]}",
               ),
               Text(
-                "Cements bags: ${estimations["cement_bags"]}",
+                "Mifuko ya simenti: ${estimations["cement_bags"]}",
               ),
               Text(
-                "Sand buckets: ${estimations["sand_buckets"]}",
+                "Ndoo za mchanga: ${estimations["sand_buckets"]}",
               ),
             ],
           ),
@@ -106,16 +107,36 @@ class _RoomEstimationsState extends State<RoomEstimations> {
                 ),
               ),
               Text(
-                "Pappies: ${estimations["total_papies"]}",
+                "Papi: ${estimations["total_papies"]}",
               ),
               Text(
-                "Timber: ${estimations["woods"]}",
+                "Mbao: ${estimations["woods"]}",
               ),
               Text(
-                "Sheets: ${estimations["sheets"]}",
+                "Mabati: ${estimations["sheets"]}",
               ),
             ],
-          )
+          ),
+
+          ElevatedButton(
+            child: const Text(
+              "Calculate budget"
+            ),
+
+            onPressed: (){
+              Navigator.of(context).push(
+                  MaterialPageRoute(
+                      builder: (context)=>MaterialCosts(
+                        blocks: estimations['blocks'],
+                        cementBags: estimations['cement_bags'],
+                        sandBuckets: estimations['sand_buckets'],
+                        sheets: estimations['sheets'],
+                        woods: estimations['woods'],
+                      )
+                  )
+              );
+            },
+          ),
         ],
       ),
     );

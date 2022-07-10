@@ -19,6 +19,7 @@ class BuildingEstimator extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: primaryColor,
         scaffoldBackgroundColor: primaryColor.shade600,
+        bottomSheetTheme: bottomSheetTheme,
         inputDecorationTheme: inputDecorationTheme,
         textButtonTheme: textButtonTheme,
         textTheme: textTheme,
