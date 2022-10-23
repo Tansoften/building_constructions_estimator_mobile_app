@@ -43,10 +43,18 @@ class _WrapperState extends State<Wrapper> {
       await fileOperation.writeFile("token.dat", "");
     }
 
-    Uri uri = Uri.parse(userUri);
+    Uri uri = Uri.parse(userUri);print(userUri);
     headers["Authorization"] = "Bearer $token";
+    http.Response response;
+    try{
+      response = await http.get(uri, headers: headers).timeout(
+        const Duration(seconds: 30),
+      );
+    }catch($exc){
+      print($exc);
+      return false;
+    }
 
-    var response = await http.get(uri, headers: headers);
 
     if(response.statusCode == 200){
       var data = json.decode(response.body);

@@ -1,7 +1,6 @@
 import 'package:building_construction_estimator/constants/constraints.dart';
 import 'package:building_construction_estimator/constants/regex.dart';
 import 'package:flutter/material.dart';
-
 import 'budget.dart';
 
 class MaterialCosts extends StatefulWidget {
